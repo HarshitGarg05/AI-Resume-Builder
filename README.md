@@ -88,13 +88,6 @@ src/
 └── templates/      # Resume Layout Templates
 ```
 
-## 📜 Documentation
-
-- [Introduction](INTRODUCTION.md) - Project vision and strategic objectives.
-- [Technical Specification](TECHNICAL_SPECIFICATION.md) - Deep dive into architecture and design.
-- [Project Report](PROJECT_REPORT.md) - Detailed analysis of features and implementation.
-- [GitHub Setup](GITHUB_SETUP.md) - Guide for setting up OAuth authentication.
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
