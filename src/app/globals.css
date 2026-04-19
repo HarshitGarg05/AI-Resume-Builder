@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #6a25f4;
+  --color-neon-lime: #ccff00;
+  --color-background-light: #f6f5f8;
+  --color-background-dark: #0a0a0e;
+
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-sans: var(--font-space-grotesk), sans-serif;
+
+  --radius-DEFAULT: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes pulse {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+  }
+}
+
+/* Custom Base Styles */
+html {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-background-dark font-display text-slate-200 selection:bg-primary/40 selection:text-white overflow-x-hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input,
+textarea,
+select {
+  @apply font-display;
+}
+
+/* Utilities from snippet */
+.neon-border-purple {
+  box-shadow:
+    0 0 10px rgba(106, 37, 244, 0.3),
+    inset 0 0 5px rgba(106, 37, 244, 0.2);
+}
+
+.neon-glow-primary {
+  box-shadow: 0 0 20px rgba(106, 37, 244, 0.6);
+}
+
+.neon-glow-lime {
+  box-shadow: 0 0 15px rgba(204, 255, 0, 0.5);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(106, 37, 244, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(106, 37, 244, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.geometric-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ccff00, transparent);
+  position: absolute;
+  width: 100%;
+  transform: rotate(-15deg);
+}
+
+.glass-card {
+  background: rgba(22, 16, 34, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(106, 37, 244, 0.2);
+}
+
+.scan-line {
+  height: 2px;
+  background: #ccff00;
+  box-shadow: 0 0 15px #ccff00;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  top: 20%;
+}
+
+.resume-document {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+}
+
+/* Force standard hex/rgb colors for PDF generator to avoid "lab" error */
+.resume-document,
+.resume-document * {
+  --color-slate-50: #f8fafc !important;
+  --color-slate-100: #f1f5f9 !important;
+  --color-slate-200: #e2e8f0 !important;
+  --color-slate-300: #cbd5e1 !important;
+  --color-slate-400: #94a3b8 !important;
+  --color-slate-500: #64748b !important;
+  --color-slate-600: #475569 !important;
+  --color-slate-700: #334155 !important;
+  --color-slate-800: #1e293b !important;
+  --color-slate-900: #0f172a !important;
+  --color-slate-950: #020617 !important;
+  --color-gray-50: #f9fafb !important;
+  --color-gray-100: #f3f4f6 !important;
+  --color-gray-200: #e5e7eb !important;
+  --color-gray-300: #d1d5db !important;
+  --color-gray-400: #9ca3af !important;
+  --color-gray-500: #6b7280 !important;
+  --color-gray-600: #4b5563 !important;
+  --color-gray-700: #374151 !important;
+  --color-gray-800: #1f2937 !important;
+  --color-gray-900: #111827 !important;
+  --color-gray-950: #030712 !important;
+  --color-black: #000000 !important;
+  --color-white: #ffffff !important;
+
+  border-color: currentColor;
+  outline-color: currentColor;
+  text-decoration-color: currentColor;
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .resume-document {
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 210mm !important;
+    height: 296mm !important;
+    max-height: 296mm !important;
+    overflow: hidden !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide app UI components */
+  .no-print,
+  button,
+  .geometric-line,
+  .grid-bg,
+  .glass-card,
+  nav,
+  header.no-print {
+    display: none !important;
+  }
+
+  /* Force background colors to print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
